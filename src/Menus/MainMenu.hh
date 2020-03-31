@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-//#include <Rect.hpp>
 
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"

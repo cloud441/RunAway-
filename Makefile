@@ -9,7 +9,10 @@ DBFLAGS= -g
 OBJS= src/runaway.o\
 	  src/Game/Game.o\
 	  src/SplashScreen/SplashScreen.o\
-	  src/Menus/MainMenu.o
+	  src/Menus/MainMenu.o\
+	  src/Objects/VisibleObject.o\
+	  src/Objects/Player.o\
+	  src/Objects/ObjectManager.o
 
 BIN= "RunAway!!"
 

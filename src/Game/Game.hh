@@ -6,11 +6,19 @@
 
 #include "SplashScreen/SplashScreen.hh"
 #include "Menus/MainMenu.hh"
+#include "Objects/Player.hh"
+#include "Objects/ObjectManager.hh"
+
+
 
 class Game
 {
     public:
         static void start();
+        static sf::RenderWindow& get_window();
+        static void get_input();
+        const static int SCREEN_WIDTH = 1920;
+        const static int SCREEN_HEIGHT = 1080;
 
     private:
         static bool is_exiting();
@@ -30,4 +38,5 @@ class Game
 
         static GameState game_state_;
         static sf::RenderWindow main_window_;
+        static ObjectManager object_manager_;
 };
