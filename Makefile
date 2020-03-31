@@ -1,12 +1,15 @@
 CXX= g++
-CXXFLAGS= -Wall -Wextra -Werror -pedantic -std=c++17 -Isrc/
+CXXFLAGS= -Wall -Wextra -Werror -pedantic -std=c++17 -Isrc/\
+		  -Itexture_pack/
 SFMLFLAGS= -lsfml-graphics \
 	-lsfml-window \
 	-lsfml-system
 DBFLAGS= -g
 
 OBJS= src/runaway.o\
-	  src/Game/Game.o
+	  src/Game/Game.o\
+	  src/SplashScreen/SplashScreen.o\
+	  src/Menus/MainMenu.o
 
 BIN= "RunAway!!"
 

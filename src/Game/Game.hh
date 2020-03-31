@@ -4,6 +4,8 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 
+#include "SplashScreen/SplashScreen.hh"
+#include "Menus/MainMenu.hh"
 
 class Game
 {
@@ -13,13 +15,16 @@ class Game
     private:
         static bool is_exiting();
         static void game_loop();
+        static void showSplashScreen();
+        static void showMenu();
 
         enum GameState {
                         Uninitialized,
                         Paused,
                         Playing,
                         Menuing,
-                        ShowingAnimation,
+                        ShowingSplash,
+                        ShowingMenu,
                         Exiting
                         };
 
