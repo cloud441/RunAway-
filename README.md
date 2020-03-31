@@ -17,8 +17,7 @@
 
 ## Prerequisites
 
-- npm >=5.5.0
-- node >=9.3.0
+- sfml >=2.5.1-1
 
 ## Install
 
