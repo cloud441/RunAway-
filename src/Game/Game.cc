@@ -12,7 +12,7 @@ void Game::start()
     if (game_state_ != GameState::Uninitialized)
         return;
 
-    main_window_.create(sf::VideoMode(1024, 768, 32), "RunAway!!");
+    main_window_.create(sf::VideoMode(1920, 1080, 32), "RunAway!!");
     game_state_ = GameState::ShowingSplash;
 
 

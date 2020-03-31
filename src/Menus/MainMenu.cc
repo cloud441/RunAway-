@@ -29,8 +29,8 @@ MainMenu::MenuResult MainMenu::show(sf::RenderWindow& window)
     menu.loadFromFile("texture_pack/main_menu.png");
     sf::Sprite sprite(menu);
 
-    auto resume_button = set_button(0, 1023, 145, 380, MenuResult::Resume);
-    auto exit_button = set_button(0, 1023, 383, 560, MenuResult::Exit);
+    auto resume_button = set_button(700, 1200, 315, 450, MenuResult::Resume);
+    auto exit_button = set_button(700, 1200, 550, 715, MenuResult::Exit);
 
     menu_items_.push_back(resume_button);
     menu_items_.push_back(exit_button);
@@ -46,8 +46,6 @@ MainMenu::MenuResult MainMenu::show(sf::RenderWindow& window)
 
 MainMenu::MenuResult MainMenu::HandleClick(int x, int y)
 {
-    //    std::vector<MenuItem>::iterator iter;
-
     for (auto iter = menu_items_.begin(); iter != menu_items_.end(); iter++)
     {
         sf::Rect<int> rect = (*iter).rect_;
