@@ -1,9 +1,9 @@
 #include "Objects/Monsters/SadIsaac.hh"
 
-#define L_BORDER 200
-#define R_BORDER 270
-#define T_BORDER 150
-#define D_BORDER 250
+#define L_BORDER 250
+#define R_BORDER 320
+#define T_BORDER 200
+#define D_BORDER 300
 
 
 SadIsaac::SadIsaac()
