@@ -1,5 +1,7 @@
 #include "Objects/Player.hh"
 
+#define BORDER 30
+
 Player::Player()
 : velocity_x_(0), velocity_y_(0), max_velocity_(600.0f)
 {
@@ -81,18 +83,15 @@ void Player::update(float time)
 
     sf::Vector2f position = this->get_position();
 
-    if (position.x < get_sprite().getScale().x / 2)
-        velocity_x_ = abs(velocity_x_);
-
-    if (position.y < get_sprite().getScale().y / 2)
-        velocity_y_ = abs(velocity_y_);
-
 
     if (is_moving)
     {
-        if (position.y + velocity_y_ * time < Game::SCREEN_HEIGHT)
+        if (position.y + velocity_y_ * time < Game::SCREEN_HEIGHT - 4 * BORDER
+            && position.y + velocity_y_ * time > BORDER)
             get_sprite().move(0, velocity_y_ * time);
-        if (position.x + velocity_x_ * time < Game::SCREEN_WIDTH)
+
+        if (position.x + velocity_x_ * time < Game::SCREEN_WIDTH -  3 * BORDER
+            && position.x + velocity_x_ * time > BORDER)
             get_sprite().move(velocity_x_ * time, 0);
     }
 }
