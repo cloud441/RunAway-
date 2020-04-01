@@ -85,3 +85,30 @@ bool VisibleObject::is_loaded() const
     return is_load_;
 }
 
+
+
+
+float VisibleObject::get_height() const
+{
+    return sprite_.getScale().y;
+}
+
+
+
+
+float VisibleObject::get_width() const
+{
+    return sprite_.getScale().x;
+}
+
+
+
+
+sf::Rect<float> VisibleObject::get_bounding_rect() const
+{
+    sf::Vector2f size = sprite_.getScale();
+    sf::Vector2f position = sprite_.getOrigin();
+
+    return sf::Rect<float>(position.x, position.y, position.x + size.x,
+                            position.y + size.y);
+}

@@ -21,6 +21,10 @@ class VisibleObject
         virtual sf::Vector2f get_position() const;
         virtual bool is_loaded() const;
 
+        virtual float get_width() const;
+        virtual float get_height() const;
+        virtual sf::Rect<float> get_bounding_rect() const;
+
     protected:
         sf::Sprite& get_sprite();
 

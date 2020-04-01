@@ -1,6 +1,9 @@
 #include "Objects/Player.hh"
 
-#define BORDER 30
+#define L_BORDER 200
+#define R_BORDER 270
+#define T_BORDER 150
+#define D_BORDER 250
 
 Player::Player()
 : velocity_x_(0), velocity_y_(0), max_velocity_(600.0f)
@@ -45,22 +48,22 @@ void Player::update(float time)
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity_x_ = -5.0f;
+        velocity_x_ = -40.0f;
         is_moving = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity_x_ = 5.0f;
+        velocity_x_ = 40.0f;
         is_moving = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        velocity_y_ = -5.0f;
+        velocity_y_ = -40.0f;
         is_moving = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        velocity_y_ = 5.0f;
+        velocity_y_ = 40.0f;
         is_moving = true;
     }
 
@@ -86,12 +89,12 @@ void Player::update(float time)
 
     if (is_moving)
     {
-        if (position.y + velocity_y_ * time < Game::SCREEN_HEIGHT - 4 * BORDER
-            && position.y + velocity_y_ * time > BORDER)
+        if (position.y + velocity_y_ * time < Game::SCREEN_HEIGHT - D_BORDER
+            && position.y + velocity_y_ * time > T_BORDER)
             get_sprite().move(0, velocity_y_ * time);
 
-        if (position.x + velocity_x_ * time < Game::SCREEN_WIDTH -  3 * BORDER
-            && position.x + velocity_x_ * time > BORDER)
+        if (position.x + velocity_x_ * time < Game::SCREEN_WIDTH - R_BORDER
+            && position.x + velocity_x_ * time > L_BORDER)
             get_sprite().move(velocity_x_ * time, 0);
     }
 }

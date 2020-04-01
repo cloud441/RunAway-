@@ -6,6 +6,16 @@
 Game::GameState Game::game_state_ = Game::GameState::Uninitialized;
 sf::RenderWindow Game::main_window_;
 ObjectManager Game::object_manager_;
+sf::Texture Game::background_texture_;
+
+
+
+void Game::set_background()
+{
+    sf::Texture background;
+    background.loadFromFile("texture_pack/background.png");
+    background_texture_ = background;
+}
 
 
 void Game::start()
@@ -22,6 +32,7 @@ void Game::start()
     object_manager_.add("Paddle1", player1);
 
     game_state_ = GameState::ShowingSplash;
+    set_background();
 
 
     while (!is_exiting())
@@ -115,9 +126,13 @@ sf::RenderWindow& Game::get_window()
 
 
 
+
+
+
 void Game::game_loop()
 {
     sf::Event current;
+    sf::Sprite sprite(background_texture_);
 
     while (main_window_.pollEvent(current))
     {
@@ -132,7 +147,7 @@ void Game::game_loop()
             break;
 
         case GameState::Playing:
-            main_window_.clear(sf::Color(255, 255, 255));
+            main_window_.draw(sprite);
 
             object_manager_.update_all();
             object_manager_.draw_all(main_window_);

@@ -26,6 +26,7 @@ class Game
         static void game_loop();
         static void showSplashScreen();
         static void showMenu();
+        static void set_background();
 
         enum GameState {
                         Uninitialized,
@@ -40,6 +41,7 @@ class Game
         static GameState game_state_;
         static sf::RenderWindow main_window_;
         static ObjectManager object_manager_;
+        static sf::Texture background_texture_;
 
     public:
 
