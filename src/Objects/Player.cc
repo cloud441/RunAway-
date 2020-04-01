@@ -59,6 +59,8 @@ void Player::update(float time)
         velocity_ = 5.0f;
         is_vertical = 1;
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        Game::set_game_state(Game::get_game_state(5));
 
     if (velocity_ > max_velocity_)
         velocity_ = max_velocity_;

@@ -36,6 +36,37 @@ void Game::start()
 
 
 
+void Game::set_game_state(Game::GameState state)
+{
+    game_state_ = state;
+}
+
+
+
+
+Game::GameState Game::get_game_state(int state)
+{
+    switch(state)
+    {
+    case 0:
+        return GameState::Uninitialized;
+    case 1:
+        return GameState::Paused;
+    case 2:
+        return GameState::Playing;
+    case 3:
+        return GameState::Menuing;
+    case 4:
+        return GameState::ShowingSplash;
+    case 5:
+        return GameState::ShowingMenu;
+    default:
+        return GameState::Exiting;
+    }
+}
+
+
+
 bool Game::is_exiting()
 {
     return (game_state_ == GameState::Exiting);
@@ -79,13 +110,6 @@ void Game::showMenu()
 sf::RenderWindow& Game::get_window()
 {
     return main_window_;
-}
-
-
-
-
-void Game::get_input()
-{
 }
 
 
