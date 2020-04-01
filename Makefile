@@ -12,6 +12,8 @@ OBJS= src/runaway.o\
 	  src/Menus/MainMenu.o\
 	  src/Objects/VisibleObject.o\
 	  src/Objects/Player.o\
+	  src/Objects/Monsters/Monster.o\
+	  src/Objects/Monsters/SadIsaac.o\
 	  src/Objects/ObjectManager.o
 
 BIN= "RunAway!!"

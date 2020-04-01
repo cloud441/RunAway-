@@ -31,6 +31,13 @@ void Game::start()
     player1->set_position(SCREEN_WIDTH / 2 - 45, SCREEN_HEIGHT / 2 - 45);
     object_manager_.add("Paddle1", player1);
 
+    //Add a SadIsaac Monster object:
+    SadIsaac *sad_isaac1 = new SadIsaac();
+    sad_isaac1->load("texture_pack/sadisaac.png");
+    sad_isaac1->set_position((SCREEN_WIDTH / 3) * 2, SCREEN_HEIGHT / 2);
+    object_manager_.add("SadIssac1", sad_isaac1);
+
+
     game_state_ = GameState::ShowingSplash;
     set_background();
 

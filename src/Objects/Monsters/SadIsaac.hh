@@ -1,0 +1,22 @@
+#pragma once
+
+
+#include <cassert>
+
+#include "Objects/Monsters/Monster.hh"
+#include "Objects/VisibleObject.hh"
+#include "Game/Game.hh"
+
+
+
+
+class SadIsaac : public Monster
+{
+
+    public:
+        SadIsaac();
+        ~SadIsaac();
+
+       void update(float time);
+       void draw(sf::RenderWindow& window);
+};

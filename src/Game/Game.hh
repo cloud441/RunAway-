@@ -7,6 +7,8 @@
 #include "SplashScreen/SplashScreen.hh"
 #include "Menus/MainMenu.hh"
 #include "Objects/Player.hh"
+#include "Objects/Monsters/Monster.hh"
+#include "Objects/Monsters/SadIsaac.hh"
 #include "Objects/ObjectManager.hh"
 
 
