@@ -24,6 +24,7 @@ class Player : public VisibleObject
 
     private:
 
-        float velocity_;
+        float velocity_x_;
+        float velocity_y_;
         float max_velocity_;
 };
