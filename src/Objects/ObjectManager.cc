@@ -77,7 +77,7 @@ void ObjectManager::draw_all(sf::RenderWindow& window)
 void ObjectManager::update_all()
 {
     std::map<std::string, VisibleObject*>::const_iterator map_iter = obj_map_.begin();
-    float frame_rate = 60;
+    float frame_rate = 5;
 
     while (map_iter != obj_map_.end())
     {

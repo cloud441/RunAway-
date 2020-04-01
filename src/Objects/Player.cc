@@ -41,22 +41,22 @@ void Player::update(float time)
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity_ = -3.0f;
+        velocity_ = -5.0f;
         is_vertical = 0;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity_ = 3.0f;
+        velocity_ = 5.0f;
         is_vertical = 0;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        velocity_ = -3.0f;
+        velocity_ = -5.0f;
         is_vertical = 1;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        velocity_ = 3.0f;
+        velocity_ = 5.0f;
         is_vertical = 1;
     }
 
@@ -70,15 +70,19 @@ void Player::update(float time)
     sf::Vector2f position = this->get_position();
 
     if (position.x < get_sprite().getScale().x / 2
-        || position.y < get_sprite().getScale().y / 2
-        || position.x > (Game::SCREEN_WIDTH - get_sprite().getScale().x / 2)
-        || position.y > (Game::SCREEN_HEIGHT - get_sprite().getScale().y / 2))
+        || position.y < get_sprite().getScale().y / 2)
     {
-        velocity_ = -velocity_;
+        velocity_ = abs(velocity_);
     }
 
     if (is_vertical == 1)
-        get_sprite().move(0, velocity_ * time);
+    {
+        if (position.y + velocity_ * time < Game::SCREEN_HEIGHT - get_sprite().getScale().y / 2)
+            get_sprite().move(0, velocity_ * time);
+    }
     else if (!is_vertical)
-        get_sprite().move(velocity_ * time, 0);
+    {
+        if (position.x + velocity_ * time < Game::SCREEN_WIDTH - get_sprite().getScale().x / 2)
+            get_sprite().move(velocity_ * time, 0);
+    }
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cassert>
+#include <cmath>
 
 #include "Objects/VisibleObject.hh"
 #include "Game/Game.hh"
