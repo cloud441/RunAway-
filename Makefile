@@ -3,7 +3,8 @@ CXXFLAGS= -Wall -Wextra -Werror -pedantic -std=c++17 -Isrc/\
 		  -Itexture_pack/
 SFMLFLAGS= -lsfml-graphics \
 	-lsfml-window \
-	-lsfml-system
+	-lsfml-system \
+	-lsfml-audio
 DBFLAGS= -g
 
 OBJS= src/runaway.o\

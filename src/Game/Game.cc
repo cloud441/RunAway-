@@ -18,6 +18,9 @@ void Game::set_background()
 }
 
 
+
+
+
 void Game::start()
 {
     if (game_state_ != GameState::Uninitialized)
@@ -40,6 +43,13 @@ void Game::start()
 
     game_state_ = GameState::ShowingSplash;
     set_background();
+
+    //Set the game music:
+    sf::Music music;
+    music.openFromFile("soundtrack/game_music.ogg");
+    music.setVolume(50);
+    music.setLoop(true);
+    music.play();
 
 
     while (!is_exiting())

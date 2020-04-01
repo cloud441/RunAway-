@@ -3,6 +3,7 @@
 #include <iostream>
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 
 #include "SplashScreen/SplashScreen.hh"
 #include "Menus/MainMenu.hh"
