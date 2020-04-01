@@ -1,8 +1,7 @@
 <h1 align="center">Welcome to RunAway!! 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-(1.0)-blue.svg?cacheSeconds=2592000" />
-  <img src="https://img.shields.io/badge/npm-%3E%3D5.5.0-blue.svg" />
-  <img src="https://img.shields.io/badge/node-%3E%3D9.3.0-blue.svg" />
+  <img src="https://img.shields.io/badge/sfml-%3E%3D2.5.1-blue.svg" />
   <a href="https://github.com/kefranabg/readme-md-generator#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
@@ -30,12 +29,6 @@ make
 
 ```sh
 make help
-```
-
-## Run tests
-
-```sh
-make test
 ```
 
 ## Author
