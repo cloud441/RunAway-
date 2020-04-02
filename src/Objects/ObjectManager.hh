@@ -18,6 +18,7 @@ class ObjectManager
 
         void add(std::string name, VisibleObject* obj);
         void remove(std::string name);
+        void clear();
 
         int get_object_count() const;
         VisibleObject* get(std::string name) const;

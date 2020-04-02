@@ -7,6 +7,7 @@
 
 #include "SplashScreen/SplashScreen.hh"
 #include "Menus/MainMenu.hh"
+#include "Menus/GameOverMenu.hh"
 #include "Objects/Player.hh"
 #include "Objects/Monsters/Monster.hh"
 #include "Objects/Monsters/SadIsaac.hh"
@@ -28,8 +29,11 @@ class Game
         static bool is_exiting();
         static void game_loop();
         static void showSplashScreen();
-        static void showMenu();
+        static void showMainMenu();
+        static void showGameOverMenu();
         static void set_background();
+        static void set_environment();
+        static void reset();
 
         enum GameState {
                         Uninitialized,
@@ -37,7 +41,8 @@ class Game
                         Playing,
                         Menuing,
                         ShowingSplash,
-                        ShowingMenu,
+                        ShowingMainMenu,
+                        ShowingGameOverMenu,
                         Exiting
                         };
 

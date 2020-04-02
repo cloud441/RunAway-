@@ -92,6 +92,8 @@ void Player::update(float time)
         if (position.y + velocity_y_ * time < Game::SCREEN_HEIGHT - D_BORDER
             && position.y + velocity_y_ * time > T_BORDER)
             get_sprite().move(0, velocity_y_ * time);
+        else
+            Game::set_game_state(Game::get_game_state(6));
 
         if (position.x + velocity_x_ * time < Game::SCREEN_WIDTH - R_BORDER
             && position.x + velocity_x_ * time > L_BORDER)

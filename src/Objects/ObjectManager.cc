@@ -39,6 +39,15 @@ void ObjectManager::remove(std::string name)
 
 
 
+void ObjectManager::clear()
+{
+    obj_map_.clear();
+}
+
+
+
+
+
 VisibleObject* ObjectManager::get(std::string name) const
 {
     std::map<std::string, VisibleObject*>::const_iterator map_iter = obj_map_.find(name);

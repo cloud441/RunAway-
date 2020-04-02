@@ -21,13 +21,8 @@ void Game::set_background()
 
 
 
-void Game::start()
+void Game::set_environment()
 {
-    if (game_state_ != GameState::Uninitialized)
-        return;
-
-    main_window_.create(sf::VideoMode(1920, 1080, 32), "RunAway!!");
-
     //Add a player object:
     Player *player1 = new Player();
     player1->load("texture_pack/paddle.png");
@@ -39,7 +34,24 @@ void Game::start()
     sad_isaac1->load("texture_pack/sadisaac.png");
     sad_isaac1->set_position((SCREEN_WIDTH / 3) * 2, SCREEN_HEIGHT / 2);
     object_manager_.add("SadIssac1", sad_isaac1);
+}
 
+void Game::reset()
+{
+    object_manager_.clear();
+    set_environment();
+}
+
+
+
+void Game::start()
+{
+    if (game_state_ != GameState::Uninitialized)
+        return;
+
+    main_window_.create(sf::VideoMode(1920, 1080, 32), "RunAway!!");
+
+    set_environment();
 
     game_state_ = GameState::ShowingSplash;
     set_background();
@@ -87,7 +99,9 @@ Game::GameState Game::get_game_state(int state)
     case 4:
         return GameState::ShowingSplash;
     case 5:
-        return GameState::ShowingMenu;
+        return GameState::ShowingMainMenu;
+    case 6:
+        return GameState::ShowingGameOverMenu;
     default:
         return GameState::Exiting;
     }
@@ -107,14 +121,14 @@ void Game::showSplashScreen()
 {
     SplashScreen splashscreen;
     splashscreen.show(main_window_);
-    game_state_ = Game::ShowingMenu;
+    game_state_ = Game::ShowingMainMenu;
 }
 
 
 
 
 
-void Game::showMenu()
+void Game::showMainMenu()
 {
     MainMenu mainmenu;
     MainMenu::MenuResult result = mainmenu.show(main_window_);
@@ -131,6 +145,30 @@ void Game::showMenu()
         break;
     }
 }
+
+
+
+
+
+
+void Game::showGameOverMenu()
+{
+    GameOverMenu GOmenu;
+    GameOverMenu::MenuResult result = GOmenu.show(main_window_);
+
+    switch(result)
+    {
+    case GameOverMenu::MenuResult::MainMenu:
+        game_state_ = Game::ShowingMainMenu;
+        break;
+    case GameOverMenu::MenuResult::Play:
+        game_state_ = Game::Playing;
+        break;
+    default:
+        break;
+    }
+}
+
 
 
 
@@ -155,8 +193,13 @@ void Game::game_loop()
     {
         switch(game_state_)
         {
-        case GameState::ShowingMenu:
-            showMenu();
+        case GameState::ShowingMainMenu:
+            showMainMenu();
+            break;
+
+        case GameState::ShowingGameOverMenu:
+            showGameOverMenu();
+            reset();
             break;
 
         case GameState::ShowingSplash:
