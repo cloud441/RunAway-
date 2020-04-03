@@ -11,8 +11,7 @@ Player::Player()
     load("texture_pack/paddle.png");
     assert(is_loaded());
 
-    get_sprite().setOrigin(get_sprite().getScale().x / 2,
-                            get_sprite().getScale().y / 2);
+    get_sprite().setOrigin(25, 25);
 }
 
 
@@ -46,22 +45,22 @@ void Player::update(float time)
     velocity_x_ = 0;
     velocity_y_ = 0;
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         velocity_x_ = -15.0f;
         is_moving = true;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         velocity_x_ = 15.0f;
         is_moving = true;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         velocity_y_ = -15.0f;
         is_moving = true;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         velocity_y_ = 15.0f;
         is_moving = true;
@@ -92,8 +91,6 @@ void Player::update(float time)
         if (position.y + velocity_y_ * time < Game::SCREEN_HEIGHT - D_BORDER
             && position.y + velocity_y_ * time > T_BORDER)
             get_sprite().move(0, velocity_y_ * time);
-        else
-            Game::set_game_state(Game::get_game_state(6));
 
         if (position.x + velocity_x_ * time < Game::SCREEN_WIDTH - R_BORDER
             && position.x + velocity_x_ * time > L_BORDER)

@@ -24,6 +24,8 @@ class Game
         const static int SCREEN_WIDTH = 1920;
         const static int SCREEN_HEIGHT = 1080;
 
+        const static ObjectManager get_object_manager();
+
     private:
 
         static bool is_exiting();

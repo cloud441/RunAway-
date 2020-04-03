@@ -1,0 +1,12 @@
+digraph G {
+
+    Game -> VisibleObject;
+    Game -> Menu;
+
+    VisibleObject -> Player;
+    VisibleObject -> Monster;
+    Monster -> SadIsaac;
+
+    Menu -> MainMenu;
+    Menu -> GameOverMenu;
+}

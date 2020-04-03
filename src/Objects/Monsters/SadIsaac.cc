@@ -6,14 +6,15 @@
 #define D_BORDER 300
 
 
+
+
 SadIsaac::SadIsaac()
 : Monster(0, 5, 300.0f)
 {
     load("texture_pack/sadisaac.png");
     assert(is_loaded());
 
-    get_sprite().setOrigin(get_sprite().getScale().x / 2,
-                            get_sprite().getScale().y / 2);
+    get_sprite().setOrigin(25, 30);
 }
 
 
@@ -33,10 +34,6 @@ void SadIsaac::draw(sf::RenderWindow& window)
 
 void SadIsaac::update(float time)
 {
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        Game::set_game_state(Game::get_game_state(5));
-
     if (velocity_x_ > max_velocity_)
         velocity_x_ = max_velocity_;
 
@@ -52,6 +49,7 @@ void SadIsaac::update(float time)
 
 
     sf::Vector2f position = this->get_position();
+
 
     if (velocity_y_ > 0)
     {

@@ -4,7 +4,6 @@
 #include <cassert>
 
 #include "Objects/Monsters/Monster.hh"
-#include "Objects/VisibleObject.hh"
 #include "Game/Game.hh"
 
 

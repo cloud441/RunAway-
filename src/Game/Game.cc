@@ -181,6 +181,13 @@ sf::RenderWindow& Game::get_window()
 
 
 
+const ObjectManager Game::get_object_manager()
+{
+    return object_manager_;
+}
+
+
+
 
 
 
@@ -210,6 +217,7 @@ void Game::game_loop()
             main_window_.draw(sprite);
 
             object_manager_.update_all();
+            object_manager_.check_collision();
             object_manager_.draw_all(main_window_);
 
             main_window_.display();

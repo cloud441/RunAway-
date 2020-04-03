@@ -25,6 +25,7 @@ class ObjectManager
 
         void draw_all(sf::RenderWindow& window);
         void update_all();
+        void check_collision();
 
 
     private:

@@ -29,8 +29,8 @@ $(BIN): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(SFMLFLAGS) -o $@ $^
 
 
-debug:
-	$(CXX) $(CXXFLAGS) $(SFMLFLAGS) $(DBFLAGS) -o $@ $^
+debug: $(OBJS)
+	$(CXX) $(DBFLAGS) $(CXXFLAGS) $(SFMLFLAGS) -o $(BIN) $^
 
 
 test:

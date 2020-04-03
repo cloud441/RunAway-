@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Objects/VisibleObject.hh"
 
 
@@ -90,7 +91,7 @@ bool VisibleObject::is_loaded() const
 
 float VisibleObject::get_height() const
 {
-    return sprite_.getScale().y;
+    return 60;
 }
 
 
@@ -98,7 +99,7 @@ float VisibleObject::get_height() const
 
 float VisibleObject::get_width() const
 {
-    return sprite_.getScale().x;
+    return 50;
 }
 
 
@@ -106,9 +107,6 @@ float VisibleObject::get_width() const
 
 sf::Rect<float> VisibleObject::get_bounding_rect() const
 {
-    sf::Vector2f size = sprite_.getScale();
-    sf::Vector2f position = sprite_.getOrigin();
-
-    return sf::Rect<float>(position.x, position.y, position.x + size.x,
-                            position.y + size.y);
+    sf::Vector2f position = sprite_.getPosition();
+    return sf::Rect<float>(position.x - 25, position.y - 30, 50, 60);
 }
