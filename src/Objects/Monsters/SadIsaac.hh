@@ -2,6 +2,7 @@
 
 
 #include <cassert>
+#include <cstdlib>
 
 #include "Objects/Monsters/Monster.hh"
 #include "Game/Game.hh"

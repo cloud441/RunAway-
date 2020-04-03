@@ -1,7 +1,7 @@
 #include "Objects/Monsters/SadIsaac.hh"
 
-#define L_BORDER 250
-#define R_BORDER 320
+#define L_BORDER 300
+#define R_BORDER 350
 #define T_BORDER 200
 #define D_BORDER 300
 
@@ -9,8 +9,12 @@
 
 
 SadIsaac::SadIsaac()
-: Monster(0, 5, 300.0f)
+: Monster(0, 0, 300.0f)
 {
+
+    velocity_x_ = rand() % 10;
+    velocity_y_ = rand() % 10;
+
     load("texture_pack/sadisaac.png");
     assert(is_loaded());
 
@@ -47,6 +51,16 @@ void SadIsaac::update(float time)
         velocity_y_ = -max_velocity_;
 
 
+    //Random change of velocity and direction (7% chance):
+    if (rand() % 1000 < 10)
+    {
+        velocity_x_ = rand() % 10;
+        velocity_y_ = rand() % 10;
+    }
+
+
+
+
 
     sf::Vector2f position = this->get_position();
 
@@ -62,5 +76,17 @@ void SadIsaac::update(float time)
             velocity_y_ = -velocity_y_;
     }
 
-    get_sprite().move(0, velocity_y_ * time);
+    if (velocity_x_ > 0)
+    {
+        if (position.x + velocity_x_ * time > Game::SCREEN_WIDTH - R_BORDER)
+            velocity_x_ = -velocity_x_;
+    }
+    else
+    {
+        if (position.x + velocity_x_ * time < L_BORDER)
+            velocity_x_ = -velocity_x_;
+    }
+
+
+    get_sprite().move(velocity_x_ * time, velocity_y_ * time);
 }

@@ -47,22 +47,22 @@ void Player::update(float time)
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
-        velocity_x_ = -15.0f;
+        velocity_x_ = -10.0f;
         is_moving = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        velocity_x_ = 15.0f;
+        velocity_x_ = 10.0f;
         is_moving = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        velocity_y_ = -15.0f;
+        velocity_y_ = -10.0f;
         is_moving = true;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        velocity_y_ = 15.0f;
+        velocity_y_ = 10.0f;
         is_moving = true;
     }
 

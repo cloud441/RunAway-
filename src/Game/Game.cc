@@ -32,7 +32,7 @@ void Game::set_environment()
     //Add a SadIsaac Monster object:
     SadIsaac *sad_isaac1 = new SadIsaac();
     sad_isaac1->load("texture_pack/sadisaac.png");
-    sad_isaac1->set_position((SCREEN_WIDTH / 3) * 2, SCREEN_HEIGHT / 2);
+    sad_isaac1->set_position((SCREEN_WIDTH / 4) * 3, (SCREEN_HEIGHT / 4) * 3);
     object_manager_.add("SadIssac1", sad_isaac1);
 }
 
