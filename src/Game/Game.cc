@@ -1,5 +1,9 @@
 #include "Game/Game.hh"
 
+#define L_BORDER 300
+#define R_BORDER 350
+#define T_BORDER 200
+#define D_BORDER 300
 
 
 // Global variables for instantiate Game attributes:
@@ -32,7 +36,16 @@ void Game::set_environment()
     //Add a SadIsaac Monster object:
     SadIsaac *sad_isaac1 = new SadIsaac();
     sad_isaac1->load("texture_pack/sadisaac.png");
-    sad_isaac1->set_position((SCREEN_WIDTH / 4) * 3, (SCREEN_HEIGHT / 4) * 3);
+
+    int pos_x = rand() % (SCREEN_WIDTH - R_BORDER) + L_BORDER;
+    int pos_y = rand() % (SCREEN_HEIGHT - D_BORDER) + T_BORDER;
+    while(abs(pos_x - SCREEN_WIDTH / 2) < 100 || abs(pos_y - SCREEN_HEIGHT) < 100)
+    {
+        pos_x = rand() % (SCREEN_WIDTH - R_BORDER) + L_BORDER;
+        pos_y = rand() % (SCREEN_HEIGHT - D_BORDER) + T_BORDER;
+    }
+
+    sad_isaac1->set_position(pos_x, pos_y);
     object_manager_.add("SadIssac1", sad_isaac1);
 }
 
